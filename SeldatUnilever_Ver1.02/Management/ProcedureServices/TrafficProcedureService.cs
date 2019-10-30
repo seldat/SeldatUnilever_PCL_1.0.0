@@ -128,18 +128,29 @@ namespace SeldatUnilever_Ver1._02.Management.ProcedureServices
             }
             return  true;
         }
-        protected DoorService getDoorService()
+        public class DoorServiceCtrl
         {
-            DoorService door=null;
+            public DoorService doorService;
+            public Pose PointFrontLine;
+            public String infoPallet;
+        }
+        protected DoorServiceCtrl getDoorService()
+        {
+            DoorServiceCtrl doorServiceCtrl = new DoorServiceCtrl();
             if (this.traffic.RobotIsInArea("RSGATE", robot.properties.pose.Position))
             {
-                door = this.doorservice.DoorMezzamineUpNew_InV;
+                doorServiceCtrl.doorService = this.doorservice.DoorMezzamineUpNew;
+                doorServiceCtrl.PointFrontLine = this.doorservice.DoorMezzamineUpNew.config.PointFrontLineInv;
+                doorServiceCtrl.infoPallet = this.doorservice.DoorMezzamineUpNew.config.infoPalletInv;
             }
             else
             {
-                door = this.doorservice.DoorMezzamineUpNew;
+                doorServiceCtrl.doorService = this.doorservice.DoorMezzamineUpNew;
+                doorServiceCtrl.PointFrontLine = this.doorservice.DoorMezzamineUpNew.config.PointFrontLine;
+                doorServiceCtrl.infoPallet = this.doorservice.DoorMezzamineUpNew.config.infoPallet;
+
             }
-            return door;
+            return doorServiceCtrl;
         }
 
     }
