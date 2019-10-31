@@ -78,7 +78,7 @@
       <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Drawing">
-      <HintPath>..\..\..\..\..\SeldatUnilever_Ver1.022__PCL\SeldatUnilever_Ver1.02\SeldatUnilever_Ver1.02\Microsoft.Expression.Drawing.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\luat\old\SeldatUnilever_PCL_1.0.0 - Editing\SeldatUnilever_Ver1.02\SeldatUnilever_Ver1.02\bin\Debug\Microsoft.Expression.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -92,7 +92,7 @@
       <HintPath>.\OpenCvSharp.UserInterface.dll</HintPath>
     </Reference>
     <Reference Include="PieControls">
-      <HintPath>..\..\..\..\..\SeldatUnilever_Ver1.022__PCL\SeldatUnilever_Ver1.02\SeldatUnilever_Ver1.02\PieControls.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\luat\old\SeldatUnilever_PCL_1.0.0 - Editing\SeldatUnilever_Ver1.02\SeldatUnilever_Ver1.02\bin\Debug\PieControls.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
