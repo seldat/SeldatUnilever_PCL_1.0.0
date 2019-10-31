@@ -272,8 +272,8 @@ namespace SeldatMRMS
                         //TrafficRountineConstants.DetectRelease(registryRobotJourney);
                        if (Traffic.RobotIsInArea("GATE", rb.properties.pose.Position))
                         {
-                           // ds.setDoorBusy(true);
-                           // ds.openDoor(DoorService.DoorType.DOOR_BACK);
+                            ds.setDoorBusy(true);
+                            ds.openDoor(DoorService.DoorType.DOOR_BACK);
                             StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_GOTO_GATE_OPEN_DOOR;
                         }
                         break;
@@ -311,8 +311,8 @@ namespace SeldatMRMS
                             robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_ERROR");
                             //StateForkLift = ForkLift.FORBUF_ROBOT_CAME_GATE_POSITION;
                             Thread.Sleep(1000);
-                            ds.setDoorBusy(true);
-                             ds.openDoor(DoorService.DoorType.DOOR_BACK);
+                            //ds.setDoorBusy(true);
+                            // ds.openDoor(DoorService.DoorType.DOOR_BACK);
                         }
                         break;
                     case ForkLift.FORBUF_ROBOT_OPEN_DOOR_SUCCESS: // mo cua thang cong ,gui toa do line de robot di vao gap hang
@@ -326,21 +326,32 @@ namespace SeldatMRMS
                     case ForkLift.FORBUF_ROBOT_WAITTING_PICKUP_PALLET_IN: // doi robot gap hang
                         try
                         {
-                            if (resCmd == ResponseCommand.RESPONSE_LINEDETECT_PALLETUP)
+                            RetState ret1 = ds.checkOpen(DoorService.DoorType.DOOR_BACK);
+                            if (RetState.DOOR_CTRL_SUCCESS == ret1)
                             {
-                                resCmd = ResponseCommand.RESPONSE_NONE;
-                                // FlToBuf.UpdatePalletState(PalletStatus.F);
-                                //   rb.SendCmdPosPallet (RequestCommandPosPallet.REQUEST_GOBACK_FRONTLINE);
-                                StateForkLift = ForkLift.FORBUF_ROBOT_FINISH_PALLET_UP;
-                                Console.WriteLine("pallet ID" + order.palletId);
+                                robot.SetSpeedTraffic(RobotSpeedLevel.ROBOT_SPEED_NORMAL, false);
+                                if (resCmd == ResponseCommand.RESPONSE_LINEDETECT_PALLETUP)
+                                {
+                                    resCmd = ResponseCommand.RESPONSE_NONE;
+                                    StateForkLift = ForkLift.FORBUF_ROBOT_FINISH_PALLET_UP;
+                                    Console.WriteLine("pallet ID" + order.palletId);
 
-                                robot.robotBahaviorAtGate = RobotBahaviorAtReadyGate.GOING_OUTSIDE_GATE;
-                                robot.ShowText("FORBUF_ROBOT_WAITTING_GOBACK_FRONTLINE_GATE");
+                                    robot.robotBahaviorAtGate = RobotBahaviorAtReadyGate.GOING_OUTSIDE_GATE;
+                                    robot.ShowText("FORBUF_ROBOT_WAITTING_GOBACK_FRONTLINE_GATE");
+                                }
+                                else if (resCmd == ResponseCommand.RESPONSE_ERROR)
+                                {
+                                    errorCode = ErrorCode.DETECT_LINE_ERROR;
+                                    CheckUserHandleError(this);
+                                }
                             }
-                            else if (resCmd == ResponseCommand.RESPONSE_ERROR)
+                            else if (RetState.DOOR_CTRL_ERROR == ret1)
                             {
-                                errorCode = ErrorCode.DETECT_LINE_ERROR;
-                                CheckUserHandleError(this);
+                                robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_ERROR");
+                                robot.SetSpeedTraffic(RobotSpeedLevel.ROBOT_SPEED_STOP, true);
+                                Thread.Sleep(100);
+                                ds.setDoorBusy(true);
+                                ds.openDoor(DoorService.DoorType.DOOR_BACK);
                             }
                         }
                         catch
@@ -422,6 +433,7 @@ namespace SeldatMRMS
                                 robot.SwitchToDetectLine(true);
                                 resCmd = ResponseCommand.RESPONSE_NONE;
                                 StateForkLift = ForkLift.FORBUF_ROBOT_SEND_CMD_DROPDOWN_PALLET_BUFFER;
+                                TrafficRountineConstants.DetectRelease(registryRobotJourney);
                             }
                             else
                             {

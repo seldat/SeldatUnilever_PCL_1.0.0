@@ -142,45 +142,6 @@ namespace SeldatMRMS.Management.RobotManagent
 
             //#endif
 
-            PropertiesRobotUnity prop3 = new PropertiesRobotUnity();
-            prop3.NameId = "RSD" + RobotUnityRegistedList.Count;
-            prop3.L1 = 2.5;
-            prop3.L2 = 4;
-            prop3.WS = 3;
-            prop3.Label = "R3";
-            prop3.BatteryLevelRb = 40;
-            prop3.Url = "ws://192.168.1.183:9090";
-            prop3.ipMcuCtrl = "192.168.1.213";
-            prop3.portMcuCtrl = 8081;
-            prop3.DistInter = 8;
-            prop3.BatteryLowLevel = BAT_LOW_LEVEL;
-            prop3.RequestChargeBattery = false;
-            prop3.Width = 1.8;
-            prop3.Height = 2.5;
-            prop3.Length = 2.2;
-            prop3.ChargeID = ChargerId.CHARGER_ID_3;
-            prop3.Scale = 10;
-            prop3.enableChage = false;
-            RobotUnity r3 = new RobotUnity();
-            r3.name = "Robot1";
-            r3.Initialize(this.canvas);
-            r3.UpdateProperties(prop3);
-            r3.mcuCtrl = new McuCtrl(r3);
-            r3.ConnectionStatusHandler += ConnectionStatusHandler;
-            PropertiesRobotUnity_List.Add(r3.properties);
-            RobotUnityRegistedList.Add(r3.properties.NameId, r3);
-            //   r3.Start(prop3.Url);
-            // đăng ký robot list to many robot quan trong
-            // AddRobotUnityReadyList(r1);
-            //AddRobotUnityReadyList(r3);
-            r3.RegistryRobotService(this);
-
-            //   r3.Radius_S = 40;
-            //   r3.Radius_B = 40;
-            //  r3.Radius_Y = 40;
-
-            r3.TurnOnSupervisorTraffic(false);
-
 
             r1.properties.pose.Position = new Point(30, -15);
             r1.properties.pose.Angle = 90;
@@ -198,31 +159,18 @@ namespace SeldatMRMS.Management.RobotManagent
             r2.properties.poseRoot.Angle = 90;
             r2.properties.poseRoot.AngleW = 90 * Math.PI / 180;
 
-            r3.properties.pose.Position = new Point(34, -15);
-            r3.properties.pose.Angle = 90;
-            r3.properties.pose.AngleW = 90 * Math.PI / 180;
-
-            r3.properties.poseRoot.Position = new Point(34, -15);
-            r3.properties.poseRoot.Angle = 90;
-            r3.properties.poseRoot.AngleW = 90 * Math.PI / 180;
-
-
 
             r1.Registry(trafficManagementService);
             r2.Registry(trafficManagementService);
-            r3.Registry(trafficManagementService);
 
             r2.RegisteRobotInAvailable(RobotUnityRegistedList);
             r1.RegisteRobotInAvailable(RobotUnityRegistedList);
-            r3.RegisteRobotInAvailable(RobotUnityRegistedList);
 
             r1.StartTraffic();
             r2.StartTraffic();
-            r3.StartTraffic();
 
             r1.PreProcedureAs = ProcedureControlAssign.PRO_READY;
             r2.PreProcedureAs = ProcedureControlAssign.PRO_READY;
-            r3.PreProcedureAs = ProcedureControlAssign.PRO_READY;
 
             // add robot trong traffic quản lý
             trafficManagementService.RegistryRobotList(RobotUnityRegistedList);
@@ -230,7 +178,6 @@ namespace SeldatMRMS.Management.RobotManagent
             //
             //  r1.Start(prop1.Url);
             //   r2.Start(prop2.Url);
-            //  r3.Start(prop3.Url);
 
         }
         public void close()

@@ -67,7 +67,7 @@ namespace SeldatMRMS.Management.DoorServices
             {
                 Name = "GATE1",
                 Id = DoorId.DOOR_MEZZAMINE_UP_NEW,
-                Ip = "192.168.1.242",
+                Ip = "192.168.1.243",
                 Port = 8081,
                 infoPallet = "{\"pallet\":0,\"dir_main\":1,\"dir_out\":0,\"bay\":1,\"hasSubLine\":\"no\",\"line_ord\":0,\"dir_sub\":0,\"row\":0}",
                 infoPalletInv = "{\"pallet\":0,\"dir_main\":2,\"dir_out\":0,\"bay\":1,\"hasSubLine\":\"no\",\"line_ord\":0,\"dir_sub\":0,\"row\":0}",

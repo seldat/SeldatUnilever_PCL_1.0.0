@@ -91,7 +91,7 @@ namespace SelDatUnilever_Ver1._00.Management.ComSocket
                 }
                 else {
                     if (this.rb != null)
-                        this.rb.ShowText("Lost connect to board");
+                    //    this.rb.ShowText("Lost connect to board");
                     Console.WriteLine("Lost connect to board");
                 }
             }

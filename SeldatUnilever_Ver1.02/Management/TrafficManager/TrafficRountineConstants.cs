@@ -136,7 +136,7 @@ namespace SeldatUnilever_Ver1._02.Management.TrafficManager
             {
                 return false;
             }
-            if (RegIntZone_MERZ.ProcessRegistryIntersectionZone(robot))
+        /*    if (RegIntZone_MERZ.ProcessRegistryIntersectionZone(robot))
             {
                 onRegMerz = true;
             }
@@ -144,41 +144,43 @@ namespace SeldatUnilever_Ver1._02.Management.TrafficManager
             {
                 return true;
             }
-            RegIntZone_MERZ.Release(robot);
-            return false;
+            RegIntZone_MERZ.Release(robot);*/
+            return true;
         }
         public static bool DetectRelease(RegistryRobotJourney rrj)
         {
+            ReleaseAll(rrj.robot);
+            return true;
             // xác định khu vực release
-            String destOP = rrj.traffic.DetermineArea(rrj.endPoint, TypeZone.MAIN_ZONE);
-            switch (destOP)
-            {
-                case "OUTER":
-                    String startplace = rrj.traffic.DetermineArea(rrj.startPoint, TypeZone.MAIN_ZONE);
-                    if (startplace.Equals("VIM"))
-                    {
-                        // release khi robot vào vùng OUTER
-                        if (rrj.traffic.HasRobotUnityinArea("OUTER", rrj.robot))
-                        {
-                            ReleaseAll(rrj.robot);
+            /*   String destOP = rrj.traffic.DetermineArea(rrj.endPoint, TypeZone.MAIN_ZONE);
+               switch (destOP)
+               {
+                   case "OUTER":
+                       String startplace = rrj.traffic.DetermineArea(rrj.startPoint, TypeZone.MAIN_ZONE);
+                       if (startplace.Equals("VIM"))
+                       {
+                           // release khi robot vào vùng OUTER
+                           if (rrj.traffic.HasRobotUnityinArea("OUTER", rrj.robot))
+                           {
+                               ReleaseAll(rrj.robot);
 
-                            // rrj.robot.ShowText("RELEASED ROBOT IN REGISTER LIST OF SEPCIAL ZONE FROM VIM -> OUTER");
-                            return true;
-                        }
-                    }
-                    break;
-                case "VIM":
-                    // xác định vùng đến cuối trong VIM.
-                    String endPointName = rrj.traffic.DetermineArea(rrj.endPoint, TypeZone.OPZS);
-                    if (rrj.traffic.HasRobotUnityinArea(endPointName, rrj.robot))
-                    {
-                        ReleaseAll(rrj.robot);
-                        //  rrj.robot.ShowText("RELEASED ROBOT IN REGISTER LIST OF SEPCIAL ZONE" + endPointName);
-                        return true;
-                    }
-                    break;
-            }
-            return false;
+                               // rrj.robot.ShowText("RELEASED ROBOT IN REGISTER LIST OF SEPCIAL ZONE FROM VIM -> OUTER");
+                               return true;
+                           }
+                       }
+                       break;
+                   case "VIM":
+                       // xác định vùng đến cuối trong VIM.
+                       String endPointName = rrj.traffic.DetermineArea(rrj.endPoint, TypeZone.OPZS);
+                       if (rrj.traffic.HasRobotUnityinArea(endPointName, rrj.robot))
+                       {
+                           ReleaseAll(rrj.robot);
+                           //  rrj.robot.ShowText("RELEASED ROBOT IN REGISTER LIST OF SEPCIAL ZONE" + endPointName);
+                           return true;
+                       }
+                       break;
+               }
+               return false;*/
         }
         public static bool DetetectInsideStationCheck(RegistryRobotJourney rrj)
         {
