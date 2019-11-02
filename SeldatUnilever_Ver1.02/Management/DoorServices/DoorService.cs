@@ -632,13 +632,16 @@ namespace DoorControllerService
                 }
                 else
                 {
-                    if (true == this.GetStatus(ref status, DoorType.DOOR_BACK))
+                    if (true == this.doorBusy)
                     {
-                        doorBackStatus = (DoorStatus)status.data[0];
-                    }
-                    if (true == this.GetStatus(ref status, DoorType.DOOR_FRONT))
-                    {
-                        doorFrontStatus = (DoorStatus)status.data[0];
+                        if (true == this.GetStatus(ref status, DoorType.DOOR_BACK))
+                        {
+                            doorBackStatus = (DoorStatus)status.data[0];
+                        }
+                        if (true == this.GetStatus(ref status, DoorType.DOOR_FRONT))
+                        {
+                            doorFrontStatus = (DoorStatus)status.data[0];
+                        }
                     }
                 }
                 Thread.Sleep(100);
@@ -661,7 +664,8 @@ namespace DoorControllerService
             ret = this.Tranfer(dataSend, ref data);
             //if (this.rb != null)
             //    this.rb.ShowText("Status door : " + id + ": " + (DoorStatus)data.data[0]);
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "Status door : " + id + ": " + (DoorStatus)data.data[0]);
+            if(ret)
+                Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "Status door : " + id + ": " + (DoorStatus)data.data[0]);
             return ret;
         }
 

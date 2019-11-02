@@ -382,6 +382,7 @@ namespace SeldatMRMS
                                     ds.setDoorBusy(false);
                                     StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_CLOSE_GATE;
                                     robot.ShowText("FORBUF_ROBOT_WAITTING_CLOSE_GATE");
+                                    robot.SetSpeedTraffic(RobotSpeedLevel.ROBOT_SPEED_NORMAL, false);
                                 }
                                 else if (resCmd == ResponseCommand.RESPONSE_ERROR)
                                 {
