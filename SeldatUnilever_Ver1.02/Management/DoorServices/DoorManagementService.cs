@@ -73,8 +73,8 @@ namespace SeldatMRMS.Management.DoorServices
                 infoPalletInv = "{\"pallet\":0,\"dir_main\":2,\"dir_out\":0,\"bay\":1,\"hasSubLine\":\"no\",\"line_ord\":0,\"dir_sub\":0,\"row\":0}",
 
                 PointCheckInGateStr = "",
-                PointFrontLineStr = "35.5,-3.04,90",
-                PointFrontLineStrInv = "35.5,-5,-90"
+                PointFrontLineStr = "36,-2.7,90",
+                PointFrontLineStrInv = "36,-5,-90"
             };
             doorICF_MUB_New.ParsePointCheckInGateValue(doorICF_MUB_New.PointCheckInGateStr);
             doorICF_MUB_New.ParsePointFrontLineValue(doorICF_MUB_New.PointFrontLineStr);
