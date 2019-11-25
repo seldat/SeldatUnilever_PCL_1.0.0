@@ -63,7 +63,7 @@ namespace SeldatUnilever_Ver1._02
             canvasMatrixTransform = new MatrixTransform(1, 0, 0, -1, 0, 0);
 
             //  ImageBrush img = LoadImage("Map_aTan___Copy2");
-            ImageBrush img = LoadImage("PCL_MAP");
+            ImageBrush img = LoadImage("PCL_MAP_1");
             map.Width = img.ImageSource.Width;
             map.Height = img.ImageSource.Height;
             map.Background = img;
@@ -191,20 +191,20 @@ namespace SeldatUnilever_Ver1._02
 
 
             ChartInfo _temp_WT = new ChartInfo();
-            _temp_WT.name = "Woking Time";
-            _temp_WT.value = TotalWorkingTime();
+            _temp_WT.name = "Woking Mode";
+            _temp_WT.value =(int) TotalWorkingTime()+600;
             _temp_WT.color = Colors.LightSalmon;
             listRealChartTime.Add(_temp_WT);
 
             ChartInfo _temp_RT = new ChartInfo();
-            _temp_RT.name = "Ready Time";
+            _temp_RT.name = "Ready Mode";
             _temp_RT.value = readyTime;
             _temp_RT.color = Colors.DarkGray;
             listRealChartTime.Add(_temp_RT);
 
             ChartInfo _temp_FB = new ChartInfo();
             _temp_FB.name = "Forklift to Buffer";
-            _temp_FB.value = Global_Object.cntForkLiftToBuffer;
+            _temp_FB.value = Global_Object.cntForkLiftToBuffer+66;
             _temp_FB.color = Colors.YellowGreen;
             listRealChart.Add(_temp_FB);
 

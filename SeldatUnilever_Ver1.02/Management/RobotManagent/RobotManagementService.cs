@@ -62,7 +62,7 @@ namespace SeldatMRMS.Management.RobotManagent
             prop1.L1 = 2.5;
             prop1.L2 = 4;
             prop1.WS = 3;
-            prop1.Label = "R4";
+            prop1.Label = "R1";
             prop1.BatteryLevelRb = 40;
             prop1.Url = "ws://192.168.1.184:9090";  //59 -> 181
             prop1.ipMcuCtrl = "192.168.1.214";
@@ -107,7 +107,7 @@ namespace SeldatMRMS.Management.RobotManagent
             prop2.L1 = 2.5;
             prop2.L2 = 4;
             prop2.WS = 3;
-            prop2.Label = "R5";
+            prop2.Label = "R2";
             prop2.BatteryLevelRb = 40;
             prop2.Url = "ws://192.168.1.185:9090";
             prop2.ipMcuCtrl = "192.168.1.215";

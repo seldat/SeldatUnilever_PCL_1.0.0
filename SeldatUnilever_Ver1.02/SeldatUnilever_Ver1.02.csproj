@@ -767,6 +767,7 @@
     <None Include="Resources\chartpie.jpg" />
     <Content Include="Resources\Alarm_EM.mp3" />
     <None Include="Resources\PCL_MAP.jpg" />
+    <None Include="Resources\PCL_MAP_1.jpg" />
     <Content Include="sharpdx_direct3d11_1_effects_arm.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -56,13 +56,13 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                     if (AssignTaskAtReady(order))
                     {
                         MoveElementToEnd();
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                         continue;
                     }
                     if (AssignWaitTask(order))
                     {
                         MoveElementToEnd();
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                         continue;
                     }
                 }
@@ -81,7 +81,7 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                     /*Check battery at ready and manual charge when rb in area ready*/
                     AssignTaskAtReady(null);
                 }
-                Thread.Sleep(500);
+                Thread.Sleep(100);
             }
         }
 
