@@ -112,6 +112,8 @@ namespace SeldatMRMS.Management.RobotManagent
         MenuItem logOutItem = new MenuItem();
         MenuItem chargeManualStart = new MenuItem();
         MenuItem chargeManualStop = new MenuItem();
+
+        MenuItem forceOverGate = new MenuItem();
         public void Initialize(Canvas canvas)
         {
             this.canvas = canvas;
@@ -201,6 +203,10 @@ namespace SeldatMRMS.Management.RobotManagent
 
 
 
+            forceOverGate.Header = "Force Gate";
+            forceOverGate.Click += ForceOverGateMenu;
+            forceOverGate.IsEnabled = true;
+
             border.ContextMenu.Items.Add(problemSolutionItem);
             border.ContextMenu.Items.Add(startItem);
             border.ContextMenu.Items.Add(pauseItem);
@@ -224,6 +230,7 @@ namespace SeldatMRMS.Management.RobotManagent
 
             border.ContextMenu.Items.Add(chargeManualStart);
             border.ContextMenu.Items.Add(chargeManualStop);
+            border.ContextMenu.Items.Add(forceOverGate);
 
             //====================EVENT=====================
             //MouseLeave += MouseLeavePath;
@@ -383,6 +390,12 @@ namespace SeldatMRMS.Management.RobotManagent
             }).Start();
             //  robotLogOut.SetName(properties.Label);
 
+        }
+
+        private void ForceOverGateMenu(object sender, RoutedEventArgs e)
+        {
+            if (onFOrceOverGate == false)
+                onFOrceOverGate = true;
         }
 
         private void KeepOnTraffic(object sender, MouseButtonEventArgs e)
