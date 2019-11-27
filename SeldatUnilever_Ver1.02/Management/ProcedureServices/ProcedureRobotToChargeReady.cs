@@ -653,7 +653,7 @@ namespace SeldatMRMS
                         KillEvent();
                         break;
                 }
-                Thread.Sleep(500);
+                Thread.Sleep(100);
             }
             StateRobotGoToReady = RobotGoToReady.ROBREA_IDLE;
         }

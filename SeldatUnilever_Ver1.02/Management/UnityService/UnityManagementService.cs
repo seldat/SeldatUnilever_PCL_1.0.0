@@ -44,23 +44,30 @@ namespace SeldatMRMS.Management.UnityService
             doorManagementService = new DoorManagementService();
             DataReceive status = new DataReceive();
 
-            // Test door
-            ///   doorManagementService.DoorMezzamineUpNew.LampSetStateOn(DoorType.DOOR_FRONT);
+            //// Test door
+            /////   doorManagementService.DoorMezzamineUpNew.LampSetStateOn(DoorType.DOOR_FRONT);
             //while (true)
             //{
+            //    Console.WriteLine("start test");
             //    doorManagementService.DoorMezzamineUpNew.LampOn(DoorType.DOOR_FRONT);
+            //    Thread.Sleep(100);
             //    doorManagementService.DoorMezzamineUpNew.LampOff(DoorType.DOOR_FRONT);
-            //    doorManagementService.DoorMezzamineUpNew.OpenPress(DoorType.DOOR_FRONT);
+            //    Thread.Sleep(100);
+            //    //doorManagementService.DoorMezzamineUpNew.OpenPress(DoorType.DOOR_FRONT);
             //    doorManagementService.DoorMezzamineUpNew.GetStatus(ref status, DoorType.DOOR_FRONT);
-            //    doorManagementService.DoorMezzamineUpNew.ClosePress(DoorType.DOOR_FRONT);
+            //    Thread.Sleep(100);
+            //    //doorManagementService.DoorMezzamineUpNew.ClosePress(DoorType.DOOR_FRONT);
             //    doorManagementService.DoorMezzamineUpNew.GetStatus(ref status, DoorType.DOOR_FRONT);
-            //    doorManagementService.DoorMezzamineUpNew.OpenPress(DoorType.DOOR_BACK);
+            //    Thread.Sleep(100);
+            //    //doorManagementService.DoorMezzamineUpNew.OpenPress(DoorType.DOOR_BACK);
             //    doorManagementService.DoorMezzamineUpNew.GetStatus(ref status, DoorType.DOOR_BACK);
-            //    doorManagementService.DoorMezzamineUpNew.ClosePress(DoorType.DOOR_BACK);
+            //    Thread.Sleep(100);
+            //    //doorManagementService.DoorMezzamineUpNew.ClosePress(DoorType.DOOR_BACK);
             //    doorManagementService.DoorMezzamineUpNew.GetStatus(ref status, DoorType.DOOR_BACK);
+            //    Thread.Sleep(100);
 
             //}
-            // End
+            ////// End
 
             procedureManagementService = new ProcedureManagementService();
             chargerService = new ChargerManagementService();

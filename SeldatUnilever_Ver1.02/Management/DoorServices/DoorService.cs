@@ -630,20 +630,22 @@ namespace DoorControllerService
                         Thread.Sleep(50);
                     }
                 }
-                //else
-                //{
-                //    if (true == this.doorBusy)
-                //    {
-                //        if (true == this.GetStatus(ref status, DoorType.DOOR_BACK))
-                //        {
-                //            doorBackStatus = (DoorStatus)status.data[0];
-                //        }
-                //        if (true == this.GetStatus(ref status, DoorType.DOOR_FRONT))
-                //        {
-                //            doorFrontStatus = (DoorStatus)status.data[0];
-                //        }
-                //    }
-                //}
+                else
+                {
+                    if (true == this.doorBusy)
+                    {
+                        Thread.Sleep(200);
+                        if (true == this.GetStatus(ref status, DoorType.DOOR_BACK))
+                        {
+                            doorBackStatus = (DoorStatus)status.data[0];
+                        }
+                        Thread.Sleep(200);
+                        if (true == this.GetStatus(ref status, DoorType.DOOR_FRONT))
+                        {
+                            doorFrontStatus = (DoorStatus)status.data[0];
+                        }
+                    }
+                }
                 Thread.Sleep(100);
             }
         }
