@@ -14,8 +14,8 @@ namespace SelDatUnilever_Ver1._00.Management.ComSocket
         //private ManualResetEvent connectDone = new ManualResetEvent(false);
         //private ManualResetEvent sendDone = new ManualResetEvent(false);
         //private ManualResetEvent receiveDone = new ManualResetEvent(false);
-        protected const UInt32 TIME_OUT_WAIT_RESPONSE = 500;
-        protected const UInt32 TIME_OUT_WAIT_CONNECT = 1000;
+        protected const UInt32 TIME_OUT_WAIT_RESPONSE = 5000;
+        protected const UInt32 TIME_OUT_WAIT_CONNECT = 10000;
 
         // The response from the remote device.  
         //private String response = String.Empty;
