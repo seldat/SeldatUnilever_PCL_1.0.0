@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using static DoorControllerService.DoorService;
 using static SeldatMRMS.Management.RobotManagent.RobotManagementService;
+using static SeldatMRMS.Management.RobotManagent.RobotUnity;
 using static SeldatMRMS.RegisterProcedureService;
 using static SelDatUnilever_Ver1._00.Management.DeviceManagement.DeviceItem;
 
@@ -205,7 +206,8 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                                 robotatready = result.robot;
                                 if ((true == result.onReristryCharge)||(robotatready.properties.enableChage == true))
                                 {
-                                    procedureService.Register(ProcedureItemSelected.PROCEDURE_ROBOT_TO_CHARGE, robotatready, null);
+                                    //  procedureService.Register(ProcedureItemSelected.PROCEDURE_ROBOT_TO_CHARGE, robotatready, null);
+                                    robotatready.setColorRobotStatus(RobotStatusColorCode.ROBOT_STATUS_CHARGING);
                                     robotManageService.RemoveRobotUnityReadyList(robotatready);
                                 }
                                 else

@@ -304,7 +304,7 @@ namespace SeldatMRMS
                         break;
                     case ForkLift.FORBUF_ROBOT_WAITTING_OPEN_DOOR: //doi mo cong
                         RetState ret = ds.checkOpen(DoorType.DOOR_BACK);
-                        if (RetState.DOOR_CTRL_SUCCESS == ret || robot.onFOrceOverGate)
+                        if (RetState.DOOR_CTRL_SUCCESS == ret)
                         {
                             robot.onFOrceOverGate = false;
                             StateForkLift = ForkLift.FORBUF_ROBOT_OPEN_DOOR_SUCCESS;

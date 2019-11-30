@@ -195,11 +195,11 @@ namespace SeldatMRMS.Management.RobotManagent
 
             chargeManualStart.Header = "Request Charge";
             chargeManualStart.Click += ChargeManualStartMenu;
-            chargeManualStart.IsEnabled = true;
+            chargeManualStart.IsEnabled = false;
 
             chargeManualStop.Header = "Stop Charge";
             chargeManualStop.Click += ChargeManualStopMenu;
-            chargeManualStop.IsEnabled = true;
+            chargeManualStop.IsEnabled = false;
 
 
 
