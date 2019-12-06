@@ -11,7 +11,7 @@ namespace SeldatUnilever_Ver1._02.Management.TrafficManager
 {
     public class RegistryIntersectionZone
     {
-        private const int NUM_ROBOT_REG = 3;
+        private const int NUM_ROBOT_REG = 2;
         private int numReg;
         public String Name{ get; set; }
         private List<RobotUnity> Registryrobotlist = new List<RobotUnity>();

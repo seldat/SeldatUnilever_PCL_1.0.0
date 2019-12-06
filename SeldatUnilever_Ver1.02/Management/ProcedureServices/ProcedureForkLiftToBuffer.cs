@@ -241,7 +241,7 @@ namespace SeldatMRMS
                         if (Traffic.RobotIsInArea("GATE", rb.properties.pose.Position)) // khu vuc mo cong
                         {
                             ds.setDoorBusy(true);
-                            ds.openDoor(DoorType.DOOR_BACK);
+                            //ds.openDoor(DoorType.DOOR_BACK);
                             StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_GOTO_GATE_READY_OPEN_DOOR;
                         }
                         break;
@@ -276,7 +276,7 @@ namespace SeldatMRMS
                         if (Traffic.RobotIsInArea("GATE", rb.properties.pose.Position))
                         {
                             ds.setDoorBusy(true);
-                            ds.openDoor(DoorType.DOOR_BACK);
+                            //ds.openDoor(DoorType.DOOR_BACK);
                             StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_GOTO_GATE_OPEN_DOOR;
                         }
                         break;

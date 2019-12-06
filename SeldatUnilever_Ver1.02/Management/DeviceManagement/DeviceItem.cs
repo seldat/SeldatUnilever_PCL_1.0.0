@@ -298,9 +298,9 @@ namespace SelDatUnilever_Ver1._00.Management.DeviceManagement
                     }
                     try
                     {
-                        if (gate == (int)DoorId.DOOR_MEZZAMINE_UP)
-                            Global_Object.doorManagementServiceCtrl.DoorMezzamineUp.LampSetStateOn(DoorType.DOOR_FRONT);
-                        if (gate == (int)DoorId.DOOR_MEZZAMINE_UP_NEW)
+                        //if (gate == (int)DoorId.DOOR_MEZZAMINE_UP)
+                        //    Global_Object.doorManagementServiceCtrl.DoorMezzamineUp.LampSetStateOn(DoorType.DOOR_FRONT);
+                        //if (gate == (int)DoorId.DOOR_MEZZAMINE_UP_NEW)
                             Global_Object.doorManagementServiceCtrl.DoorMezzamineUpNew.LampSetStateOn(DoorType.DOOR_FRONT);
                     }
                     catch (Exception e)
@@ -357,9 +357,9 @@ namespace SelDatUnilever_Ver1._00.Management.DeviceManagement
                     }
                     try
                     {
-                        if (gate == (int)DoorId.DOOR_MEZZAMINE_UP)
-                            Global_Object.doorManagementServiceCtrl.DoorMezzamineUp.LampSetStateOn(DoorType.DOOR_FRONT);
-                        if (gate == (int)DoorId.DOOR_MEZZAMINE_UP_NEW)
+                        //if (gate == (int)DoorId.DOOR_MEZZAMINE_UP)
+                        //    Global_Object.doorManagementServiceCtrl.DoorMezzamineUp.LampSetStateOn(DoorType.DOOR_FRONT);
+                        //if (gate == (int)DoorId.DOOR_MEZZAMINE_UP_NEW)
                             Global_Object.doorManagementServiceCtrl.DoorMezzamineUpNew.LampSetStateOn(DoorType.DOOR_FRONT);
                     }
                     catch (Exception e)
