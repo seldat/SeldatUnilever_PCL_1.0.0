@@ -584,7 +584,7 @@ namespace SeldatMRMS
                         }
                         break;
                     case RobotGoToReady.ROBREA_ROBOT_WAITTING_GOTO_READYSTATION: // Robot dang di toi dau line ready station
-                        if (DetermineHasTaskWaitingAnRobotAvailable())
+                        if (GetTaskRd())
                         {
                             StateRobotGoToReady = RobotGoToReady.ROBREA_ROBOT_WAITINGREADY_FORCERELEASED;
                             robot.ShowText("ROBREA_ROBOT_WAITINGREADY_FORCERELEASED");
@@ -689,7 +689,7 @@ namespace SeldatMRMS
                 {
                     cntOrderItem++;
                 }
-                if (cntOrderItem > 1) //
+                if (cntOrderItem >= 1) //
                 {
                     if (robotService.RobotUnityWaitTaskList.Count > 0 || robotService.RobotUnityReadyList.Count > 0)
                     {
@@ -708,6 +708,28 @@ namespace SeldatMRMS
                         }
                     }
 
+                }
+            }
+            catch { }
+            return false;
+        }
+
+        public bool GetTaskRd()
+        {
+            try
+            {
+                OrderItem order = assigmentTask.CheckHastask();
+                if (order != null)
+                {
+                    if (robotService.RobotUnityReadyList.Count > 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        robot.ShowText("GetTaskRd Break goto ready and assign task _____(-_ -)____");
+                        return true;
+                    }
                 }
             }
             catch { }

@@ -171,6 +171,16 @@ namespace SeldatMRMS
                                 robot.ShowText("FORBUF_ROBOT_GOTO_BACK_FRONTLINE_READY");
                                 StateForkLift = ForkLift.FORBUF_ROBOT_GOTO_BACK_FRONTLINE_READY;
                             }
+                            else {
+                                robot.robotTag = RobotStatus.WORKING;
+                                if (rb.SendPoseStamped(doorServiceCtrl.PointFrontLine))
+                                {
+                                    resCmd = ResponseCommand.RESPONSE_NONE;
+                                    StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_GOTO_GATE_READY;
+                                    robot.ShowText("FORBUF_ROBOT_WAITTING_GOTO_GATE");
+                                    break;
+                                }
+                            } 
                         }
                         else if (Traffic.RobotIsInArea("GATE", robot.properties.pose.Position))
                         {
