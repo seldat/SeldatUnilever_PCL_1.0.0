@@ -192,7 +192,7 @@ namespace SeldatUnilever_Ver1._02
 
             ChartInfo _temp_WT = new ChartInfo();
             _temp_WT.name = "Woking Mode";
-            _temp_WT.value =(int) (TotalWorkingTime()+600);
+            _temp_WT.value =(int) (TotalWorkingTime()+0);
             _temp_WT.color = Colors.LightSalmon;
             listRealChartTime.Add(_temp_WT);
 
@@ -204,7 +204,7 @@ namespace SeldatUnilever_Ver1._02
 
             ChartInfo _temp_FB = new ChartInfo();
             _temp_FB.name = "Forklift to Buffer";
-            _temp_FB.value = Global_Object.cntForkLiftToBuffer+66;
+            _temp_FB.value = Global_Object.cntForkLiftToBuffer+0;
             _temp_FB.color = Colors.YellowGreen;
             listRealChart.Add(_temp_FB);
 
@@ -216,7 +216,7 @@ namespace SeldatUnilever_Ver1._02
 
          ChartInfo _temp_RD = new ChartInfo();
             _temp_RD.name = "Idle";
-            _temp_RD.value = 10;
+            _temp_RD.value = 1;
             _temp_RD.color = Colors.MediumBlue;
             listRealChart.Add(_temp_RD);
 
