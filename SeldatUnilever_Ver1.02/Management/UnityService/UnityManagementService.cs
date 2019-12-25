@@ -96,8 +96,8 @@ namespace SeldatMRMS.Management.UnityService
             deviceRegistrationService.RegistryMainWindow(this.mainWindow);
 
             //assigmentTaskService.Start();
-            MessageBox.Show("Bấm Start Để Bắt Đầu !");
-            RobotMoving robotMoving = new RobotMoving(robotManagementService.RobotUnityRegistedList);
+            //MessageBox.Show("Bấm Start Để Bắt Đầu !");
+            //RobotMoving robotMoving = new RobotMoving(robotManagementService.RobotUnityRegistedList);
           //robotMoving.Show();
 
             //assigmentTaskService.Start();
