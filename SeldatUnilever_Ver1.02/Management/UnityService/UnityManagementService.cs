@@ -3,18 +3,10 @@ using SeldatMRMS.Management.RobotManagent;
 using SeldatMRMS.Management.TrafficManager;
 using SeldatUnilever_Ver1._02;
 using SeldatUnilever_Ver1._02.DTO;
-using SeldatUnilever_Ver1._02.Management.RobotManagent;
 using SelDatUnilever_Ver1._00.Management.ChargerCtrl;
 using SelDatUnilever_Ver1._00.Management.DeviceManagement;
 using SelDatUnilever_Ver1._00.Management.UnityService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using static DoorControllerService.DoorService;
 using static SelDatUnilever_Ver1._00.Management.ComSocket.RouterComPort;
 
 namespace SeldatMRMS.Management.UnityService

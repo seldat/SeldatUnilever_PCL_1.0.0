@@ -664,9 +664,9 @@ namespace DoorControllerService
             dataSend[5] = (byte)id;
             dataSend[6] = CalChecksum(dataSend, 4);
             ret = this.Tranfer(dataSend, ref data);
-            //if (this.rb != null)
-            //    this.rb.ShowText("Status door : " + id + ": " + (DoorStatus)data.data[0]);
-            if(ret)
+            if (this.rb != null)
+                this.rb.ShowText("Status door : " + id + ": " + (DoorStatus)data.data[0]);
+            if (ret)
                 Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "Status door : " + id + ": " + (DoorStatus)data.data[0]);
             return ret;
         }

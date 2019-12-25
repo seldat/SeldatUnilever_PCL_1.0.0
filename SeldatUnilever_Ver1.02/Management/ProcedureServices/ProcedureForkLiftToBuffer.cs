@@ -313,20 +313,20 @@ namespace SeldatMRMS
                         robot.ShowText("FORBUF_ROBOT_WAITTING_OPEN_DOOR");
                         break;
                     case ForkLift.FORBUF_ROBOT_WAITTING_OPEN_DOOR: //doi mo cong
-                        RetState ret = ds.checkOpen(DoorType.DOOR_BACK);
-                        if (RetState.DOOR_CTRL_SUCCESS == ret)
+                        DoorStatus ret = ds.getStatusDoor(DoorType.DOOR_BACK);
+                        if (DoorStatus.DOOR_OPEN == ret)
                         {
-                            robot.onFOrceOverGate = false;
+                            //robot.onFOrceOverGate = false;
                             StateForkLift = ForkLift.FORBUF_ROBOT_OPEN_DOOR_SUCCESS;
                             robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_SUCCESS");
                         }
-                        else if (RetState.DOOR_CTRL_ERROR == ret)
-                        {
-                            robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_ERROR");
-                            ds.setDoorBusy(true);
-                            ds.openDoor(DoorService.DoorType.DOOR_BACK);
-                            Thread.Sleep(6000);
-                        }
+                        //else if (RetState.DOOR_CTRL_ERROR == ret)
+                        //{
+                        //    robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_ERROR");
+                        //    ds.setDoorBusy(true);
+                        //    ds.openDoor(DoorService.DoorType.DOOR_BACK);
+                        //    Thread.Sleep(6000);
+                        //}
                         break;
                     case ForkLift.FORBUF_ROBOT_OPEN_DOOR_SUCCESS: // mo cua thang cong ,gui toa do line de robot di vao gap hang
                         // rb.SendCmdLineDetectionCtrl(RequestCommandLineDetect.REQUEST_LINEDETECT_PALLETUP);

@@ -4,22 +4,13 @@ using SeldatUnilever_Ver1._02.Management.RobotManagent;
 using SeldatUnilever_Ver1._02.Management.TrafficManager;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 using static DoorControllerService.DoorService;
-using static SelDatUnilever_Ver1._00.Management.ChargerCtrl.ChargerCtrl;
 using static SelDatUnilever_Ver1._00.Management.TrafficManager.TrafficRounterService;
 
 namespace SeldatMRMS.Management.RobotManagent
