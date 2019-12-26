@@ -22,6 +22,7 @@ namespace SeldatMRMS.Management.RobotManagent
         public const Int32 AmountofRobotUnity = 3;
         private const Int32 BAT_LOW_LEVEL = 15;
         public static int indexRd = 0;
+        public static int indexWt = 0;
         public class ResultRobotReady
         {
             public RobotUnity robot;
@@ -256,8 +257,8 @@ namespace SeldatMRMS.Management.RobotManagent
             {
                 if (!RobotUnityWaitTaskList.Contains(robot))
                 {
-                    robot.ShowText(robot.properties.Label + "Add wait tasklist");
                     RobotUnityWaitTaskList.Add(robot);
+                    robot.ShowText(robot.properties.Label + " Add wait tasklist " + RobotUnityWaitTaskList.Count);
                 }
             }
             catch {
@@ -271,8 +272,8 @@ namespace SeldatMRMS.Management.RobotManagent
             {
                 if (RobotUnityWaitTaskList.Contains(robot))
                 {
-                    robot.ShowText(robot.properties.Label + "Remove wait tasklist");
                     RobotUnityWaitTaskList.Remove(robot);
+                    robot.ShowText(robot.properties.Label + " Remove wait tasklist " + RobotUnityWaitTaskList.Count);
                 }
             }
             catch
@@ -300,6 +301,38 @@ namespace SeldatMRMS.Management.RobotManagent
         }
         public ResultRobotReady GetRobotUnityWaitTaskItem0()
         {
+#if true
+            ResultRobotReady result = null;
+            while (RobotUnityWaitTaskList.Count > 0)
+            {
+                try
+                {
+                    if (indexWt >= RobotUnityWaitTaskList.Count)
+                    {
+                        indexWt = 0;
+                    }
+                    RobotUnity robot = RobotUnityWaitTaskList[indexWt];
+                    indexWt++;
+                    if (robot != null)
+                    {
+                        if (robot.properties.IsConnected)
+                        {
+                            result = new ResultRobotReady() { robot = robot, onReristryCharge = robot.getBattery() };
+                            break;
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    indexWt = 0;
+                    Console.WriteLine("Error ReadyTask in  RobotManagement Service Remove Robot");
+                    Console.WriteLine(e);
+                }
+            }
+
+            return result;
+#else
 
             ResultRobotReady result = null;
 
@@ -328,6 +361,7 @@ namespace SeldatMRMS.Management.RobotManagent
             }
 
             return result;
+#endif
         }
         public void MoveRobotWaitTask()
         {

@@ -41,6 +41,45 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
         }
         public void MainProcessAssignTask()
         {
+#if true
+            while (Alive)
+            {
+                OrderItem odCheck = CheckHastask();
+                if (odCheck != null)
+                {
+                    for (int i = 0; i < deviceItemsList.Count; i++)
+                    {
+                        OrderItem order = Gettask();
+                        if (order != null)
+                        {
+                            //cntWaitTask = 0;
+                            if (AssignTaskAtReady(order))
+                            {
+                                Console.WriteLine("order __ AssignTaskAtReady");
+                            }
+                            else
+                            {
+                                if (AssignWaitTask(order))
+                                {
+                                    Console.WriteLine("order __ AssignWaitTask");
+                                }
+                                else {
+                                    break;
+                                }
+                            }
+                        }
+                        MoveElementToEnd();
+                    }
+                }
+                else
+                {
+                    AssignWaitTask(null);
+                    /*Check battery at ready and manual charge when rb in area ready*/
+                    AssignTaskAtReady(null);
+                }
+                Thread.Sleep(100);
+            }
+#else
             int cntWaitTask = 0;
             while (Alive)
             {
@@ -80,6 +119,7 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                 }
                 Thread.Sleep(100);
             }
+#endif
         }
 
         public bool AssignWaitTask(OrderItem order)
@@ -255,22 +295,15 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                                 }
                                 if (TrafficRountineConstants.RegIntZone_READY.ProcessRegistryIntersectionZone(robotatready))
                                 {
-                                    // processAssignTaskReady = ProcessAssignTaskReady.PROC_READY_CHECK_HAS_ANTASK;
                                     orderItem_ready = order;
-                                    //  orderItem_ready.onAssiged = true;
-                                    Console.WriteLine(processAssignTaskReady);
                                     orderItem_ready.robot = robotatready.properties.Label;
                                     robotatready.orderItem = orderItem_ready;
-                                    processAssignTaskReady = ProcessAssignTaskReady.PROC_READY_ASSIGN_ANTASK;
-                                    // MoveElementToEnd();
                                     TrafficRountineConstants.RegIntZone_READY.Release(robotatready);
                                     robotatready.TurnOnSupervisorTraffic(true);
-                                    Console.WriteLine(processAssignTaskReady);
                                     SelectProcedureItem(robotatready, orderItem_ready);
                                     deviceItemsList[0].RemoveFirstOrder();
                                     robotManageService.RemoveRobotUnityReadyList(robotatready);
                                     orderItem_ready.status = StatusOrderResponseCode.DELIVERING;
-                                    processAssignTaskReady = ProcessAssignTaskReady.PROC_READY_CHECK_ROBOT_OUTSIDEREADY;
                                     return true;
                                 }
                                 else
@@ -297,7 +330,7 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                             if (result != null)
                             {
                                 robotatready = result.robot;
-                                if ((true == result.onReristryCharge)||(robotatready.properties.enableChage == true))
+                                if ((true == result.onReristryCharge) || (robotatready.properties.enableChage == true))
                                 {
                                     //  procedureService.Register(ProcedureItemSelected.PROCEDURE_ROBOT_TO_CHARGE, robotatready, null);
                                     robotatready.setColorRobotStatus(RobotStatusColorCode.ROBOT_STATUS_CHARGING);
