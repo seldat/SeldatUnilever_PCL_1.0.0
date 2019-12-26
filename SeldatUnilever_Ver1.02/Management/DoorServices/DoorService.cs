@@ -652,7 +652,7 @@ namespace DoorControllerService
 
         public bool GetStatus(ref DataReceive data, DoorType id)
         {
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "GetStatus Door :" + id);
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "GetStatus Door :" + id);
             bool ret = false;
             byte[] dataSend = new byte[7];
 
@@ -664,16 +664,15 @@ namespace DoorControllerService
             dataSend[5] = (byte)id;
             dataSend[6] = CalChecksum(dataSend, 4);
             ret = this.Tranfer(dataSend, ref data);
-            if (this.rb != null)
-                this.rb.ShowText("Status door : " + id + ": " + (DoorStatus)data.data[0]);
-            if (ret)
-                Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "Status door : " + id + ": " + (DoorStatus)data.data[0]);
+            //if (this.rb != null)
+                //this.rb.ShowText("Status door : " + id + ": " + (DoorStatus)data.data[0]);
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "Status door : " + id + ": " + (DoorStatus)data.data[0]);
             return ret;
         }
 
         public bool OpenPress(DoorType id)
         {
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "OpenPress Door");
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "OpenPress Door");
             bool ret = false;
             byte[] dataSend = new byte[7];
 
@@ -691,7 +690,7 @@ namespace DoorControllerService
 
         public bool ClosePress(DoorType id)
         {
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "ClosePress Door");
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "ClosePress Door");
             bool ret = false;
             byte[] dataSend = new byte[7];
 
@@ -708,7 +707,7 @@ namespace DoorControllerService
 
         public bool LampOn(DoorType id)
         {
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "LampOn Door");
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "LampOn Door");
             bool ret = false;
             byte[] dataSend = new byte[7];
 
@@ -725,7 +724,7 @@ namespace DoorControllerService
 
         public bool LampOff(DoorType id)
         {
-            Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "LampOff Door");
+            //Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt") + "LampOff Door");
             bool ret = false;
             byte[] dataSend = new byte[7];
 

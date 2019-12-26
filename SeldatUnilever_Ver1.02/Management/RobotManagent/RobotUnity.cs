@@ -597,6 +597,7 @@ namespace SeldatMRMS.Management.RobotManagent
         }
         private void DisposeMenu(object sender, RoutedEventArgs e)
         {
+            laserBackOffRb();
             DisposeF();
         }
         public void DisposeF()
@@ -604,6 +605,7 @@ namespace SeldatMRMS.Management.RobotManagent
             DisposeProcedure();
             KillPID();
             KillActionLib();
+            laserBackOffRb();
             TurnOnSupervisorTraffic(true);
             SwitchToDetectLine(false);
             robotService.RemoveRobotUnityReadyList(this);
@@ -618,6 +620,7 @@ namespace SeldatMRMS.Management.RobotManagent
         }
         private void DisConnectMenu(object sender, RoutedEventArgs e)
         {
+            laserBackOffRb();
             DisposeProcedure();
             Dispose();
             KillPID();
