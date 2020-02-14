@@ -45,9 +45,9 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
 #if true
             while (Alive)
             {
-                OrderItem odCheck = CheckHastask();
-                if (odCheck != null)
-                {
+                //OrderItem odCheck = CheckHastask();
+                //if (odCheck != null)
+                //{
                     for (int i = 0; i < deviceItemsList.Count; i++)
                     {
                         OrderItem order = Gettask();
@@ -71,13 +71,13 @@ namespace SelDatUnilever_Ver1._00.Management.UnityService
                         }
                         MoveElementToEnd();
                     }
-                }
-                else
-                {
+                //}
+                //else
+                //{
                     AssignWaitTask(null);
                     /*Check battery at ready and manual charge when rb in area ready*/
                     AssignTaskAtReady(null);
-                }
+                //}
                 Thread.Sleep(100);
             }
 #else
